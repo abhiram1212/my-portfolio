@@ -15,54 +15,53 @@ const C = {
 };
 
 /* ── DATA ── */
-const ROLES = ["Software Engineer","Backend Architect","Go Developer","Cloud Native Builder","Systems Thinker"];
+const ROLES = ["Software Engineer","Backend Architect","Go Developer","Cloud Native Builder","AI Engineer","Machine Learning Engineer"];
 
 const WORK = [
   {
     id:1, num:"01",
-    period:"Dec 2024 – Nov 2025",
+    period:"Dec 2024 – Present",
     company:"SocialTech Labs", location:"New York, USA",
-    role:"Software Development Engineer",
-    stack:["Go","AWS Lambda","DynamoDB","Redis","Docker","Jenkins","API Gateway"],
+    role:"AI Engineer",
+    stack:["Go", "Python", "AWS Lambda", "DynamoDB", "Redis", "Gradient Boosting", "PyTorch", "CI/CD", "Docker"],
     highlights:[
-      "Designed Go microservices with worker pools & message channels to handle burst traffic at low latency.",
-      "Architected stateless AWS service layer (Lambda + API Gateway + DynamoDB + Redis) — cut p95 latency by 30%.",
-      "Distributed Redis caching with read-through, TTL eviction, and connection pooling slashed DB load by 45%.",
-      "Built testing framework with table-driven tests, httptest, gomock — 85% coverage across 20K+ LOC.",
-      "CI/CD pipelines with Jenkins + AWS CodePipeline compressed release cycles from days to hours.",
+      "Designed and deployed real-time ML inference services in Go and Python for behavioral risk scoring, delivering sub-50ms p95 latency in production.",
+      "Built distributed feature pipelines using AWS Lambda, DynamoDB, and Redis to generate user embeddings and time-series features for real-time model serving.",
+      "Implemented a model evaluation and experimentation framework to compare gradient boosting and neural network approaches, improving prediction precision by 18%.",
+      "Developed automated retraining workflows with scheduled batch jobs, data versioning, and CI/CD pipelines, reducing manual deployment effort and enabling continuous model refresh.",
     ],
   },
   {
     id:2, num:"02",
     period:"Jul 2022 – Jun 2023",
     company:"1Stop.ai", location:"Bengaluru, India",
-    role:"Software Engineer",
-    stack:["Python","Flask","scikit-learn","Kafka","pytest","A/B Testing"],
+    role:"Machine Learning Engineer",
+    stack:["Python", "Flask", "PyTorch", "scikit-learn", "Airflow", "MLflow", "Optuna", "Prometheus"],
     highlights:[
-      "Built end-to-end data pipelines for automotive ML workloads — 40% faster runtime, 25% less memory.",
-      "Flask REST APIs serving 1K+ concurrent predictions with fault tolerance and retry logic.",
-      "Improved model accuracy 15% via GridSearchCV hyperparameter tuning and ensemble methods.",
-      "A/B testing workflows enabled continuous retraining and performance regression detection.",
+      "Built large-scale ML pipelines for automotive sensor data, performing multi-dimensional time-series feature extraction and reducing preprocessing latency by 40% across production workloads.",
+      "Developed RESTful inference APIs using Flask and PyTorch to serve real-time anomaly detection models with low-latency prediction paths.",
+      "Implemented automated model validation, hyperparameter tuning, and ensemble pipelines, improving model accuracy by 15% across three production variants under class-imbalanced conditions.",
+      "Instrumented pipelines with logging and metrics to monitor data quality, feature distributions, and prediction errors, strengthening end-to-end ML reliability.",
     ],
   },
   {
     id:3, num:"03",
-    period:"Aug 2021 – Jan 2022",
+    period:"Jun 2021 – May 2022",
     company:"Pixelvide", location:"Hyderabad, India",
-    role:"Software Developer Intern",
-    stack:["Java","Spring Boot","Apache Kafka","PostgreSQL","JWT","JUnit"],
+    role:"Software Developer Engineer",
+    stack:["Java", "Spring Boot", "PostgreSQL", "Kafka", "Spark", "JWT", "pytest", "JUnit"],
     highlights:[
-      "Built FMIS backend for large-scale government expenditure workflows in Java Spring Boot.",
-      "Kafka streaming pipelines auto-billed 50K+ households from smart meter telemetry.",
-      "JWT auth & RBAC for audit-compliant financial reporting APIs.",
-      "JUnit + pytest suites kept test coverage above 90% for production releases.",
+      "Designed and built data ingestion and preprocessing pipelines for large-scale financial transaction data, generating features for fraud detection and expenditure anomaly analysis.",
+      "Developed and deployed RESTful APIs to serve model-ready feature datasets and real-time inference results, supporting analytics workflows over 50K+ financial transactions per day.",
+      "Designed secure data access layers with JWT authentication and role-based access controls, ensuring compliant model training workflows and audit-ready analytics.",
+      "Engineered automated data validation and testing pipelines using pytest and JUnit with 90%+ coverage, enforcing schema integrity and data quality across all ML-facing data flows.",
     ],
   },
 ];
 
 const SKILLS = [
   { cat:"Languages",   items:["Go","Python","Java","TypeScript","SQL","C++"],                       levels:[5,5,5,3,4,2] },
-  { cat:"Cloud & Infra",items:["AWS Lambda","DynamoDB","Redis","Docker","Kubernetes","CI/CD"],        levels:[5,5,5,4,3,4] },
+  { cat:"Cloud & Infra",items:["AWS Lambda","DynamoDB","Redis","Docker","Kubernetes","CI/CD"],        levels:[5,5,5,4,3,5] },
   { cat:"Frameworks",  items:["Spring Boot","Flask","Node.js","React","Django","gRPC"],              levels:[5,5,3,3,3,3] },
   { cat:"Testing",     items:["gomock","pytest","JUnit","Mockito","TDD","httptest"],                 levels:[5,5,5,4,4,4] },
 ];
@@ -498,7 +497,7 @@ export default function Portfolio(){
         </div>
 
         <p className="fu4" style={{fontSize:14,color:C.muted,lineHeight:1.9,maxWidth:540,marginBottom:44}}>
-          2+ years shipping production-grade backend systems — distributed microservices, cloud-native APIs, and automated pipelines. Go, Java, Python on AWS. I care about systems that scale without drama.
+          ML Engineer with 3+ years building production systems at the intersection of data and infrastructure. Shipping real-time inference services, distributed feature pipelines, and automated ML workflows in Go, Python, and Java on AWS. I care about models that actually run in production, not just notebooks.
         </p>
 
         <div className="fu5" style={{display:'flex',gap:14,flexWrap:'wrap'}}>
@@ -611,7 +610,7 @@ export default function Portfolio(){
     <footer style={{background:C.bg,borderTop:`1px solid ${C.border}`,padding:'18px clamp(16px,5vw,64px)',position:'relative',zIndex:1}}>
       <div className="footer-inner">
         <span style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:14,color:C.muted,letterSpacing:-.3}}>Abhiram Mullapudi</span>
-        <span style={{fontFamily:"'DM Mono',monospace",fontSize:11,color:C.dim,letterSpacing:'.1em'}}>Fairfax, VA · 2025</span>
+        <span style={{fontFamily:"'DM Mono',monospace",fontSize:11,color:C.dim,letterSpacing:'.1em'}}>Fairfax, VA · 2026</span>
       </div>
     </footer>
   </>);
