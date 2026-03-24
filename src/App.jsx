@@ -59,6 +59,30 @@ const WORK = [
   },
 ];
 
+const PROJECTS = [
+  {
+    id: 1,
+    num: "01",
+    title: "DocMind",
+    subtitle: "AI-Powered PDF Chat Assistant",
+    description: "Full stack AI application that lets users upload PDF documents and ask questions in natural language. Uses semantic search to find relevant content and streams AI-generated answers in real time. Supports multi-PDF uploads, duplicate detection, and mid-chat PDF switching.",
+    highlights: [
+      "REST API backend with FastAPI handling PDF processing, text extraction, and chunking.",
+      "Semantic search pipeline using sentence-transformers with embeddings stored in PostgreSQL via pgvector.",
+      "Streaming AI responses using Anthropic Claude API over Server-Sent Events with a real-time React UI.",
+      "Full AWS deployment across EC2, RDS, S3, and CloudFront with systemd process management.",
+    ],
+    stack: {
+      "Backend":  ["Python", "FastAPI", "PostgreSQL", "pgvector"],
+      "AI":       ["Claude API", "sentence-transformers", "LangChain"],
+      "Frontend": ["React", "Tailwind CSS", "Vite"],
+      "Cloud":    ["AWS EC2", "RDS", "S3", "CloudFront"],
+      "Tools":    ["Docker", "Git", "systemd"],
+    },
+    live: "https://d1trzl7talcx36.cloudfront.net",
+  },
+];
+
 const SKILLS = [
   { cat:"Languages",   items:["Go","Python","Java","TypeScript","SQL","C++"],                       levels:[5,5,5,3,4,2] },
   { cat:"Cloud & Infra",items:["AWS Lambda","DynamoDB","Redis","Docker","Kubernetes","CI/CD"],        levels:[5,5,5,4,3,5] },
@@ -100,16 +124,14 @@ const CSS = `
   *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
   html { scroll-behavior:smooth; }
 
-  /* ── MOBILE NAV ── */
   .nav-desktop { display:flex; gap:0; }
   .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:transparent; border:none; }
   .nav-hamburger span { display:block; width:22px; height:2px; background:var(--c-green); transition:all .3s; }
   .nav-mobile { display:none; position:fixed; top:56px; left:0; right:0; background:var(--c-nav); backdrop-filter:blur(16px); border-bottom:1px solid var(--c-border); z-index:99; flex-direction:column; }
   .nav-mobile.open { display:flex; }
-  .nav-mobile a { padding:16px 24px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; color:var(--c-muted); border-bottom:1px solid ${C.border}; transition:color .2s,background .2s; }
-  .nav-mobile a:hover { color:${C.green}; background:var(--c-greenFaint); }
+  .nav-mobile a { padding:16px 24px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; color:var(--c-muted); border-bottom:1px solid var(--c-border); transition:color .2s,background .2s; }
+  .nav-mobile a:hover { color:var(--c-green); background:var(--c-greenFaint); }
 
-  /* ── WORK CARD MOBILE ── */
   @media (max-width:600px) {
     .work-header { grid-template-columns: 36px 1fr !important; gap:12px !important; padding:20px 16px !important; }
     .work-header-meta { display:none !important; }
@@ -117,35 +139,41 @@ const CSS = `
     .work-highlights { padding:16px 16px 20px !important; }
   }
 
-  /* ── SKILL TABS MOBILE ── */
   .skill-tabs-wrap { display:flex; gap:0; margin-bottom:36px; border:1px solid var(--c-border); width:fit-content; flex-wrap:wrap; }
   @media (max-width:500px) {
     .skill-tabs-wrap { width:100%; }
     .skill-tabs-wrap button { flex:1; padding:10px 8px !important; font-size:9px !important; }
   }
 
-  /* ── CONTACT GRID ── */
   .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
   @media (max-width:700px) {
     .contact-grid { grid-template-columns:1fr; gap:40px; }
   }
 
-  /* ── STATS GRID ── */
   .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
   @media (max-width:800px) { .stats-grid { grid-template-columns:repeat(2,1fr); } }
   @media (max-width:400px) { .stats-grid { grid-template-columns:1fr; } }
 
-  /* ── EDU GRID ── */
   .edu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:2px; }
 
-  /* ── HERO ── */
+  /* Project card */
+  .project-card { border:1px solid var(--c-border); transition:border-color .3s; }
+  .project-card:hover { border-color:var(--c-greenDim); }
+
+  .project-stack-group { display:flex; flex-direction:column; gap:6px; }
+  .project-stack-label { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--c-muted); font-family:'DM Mono',monospace; }
+  .project-stack-pills { display:flex; flex-wrap:wrap; gap:6px; }
+  .project-stack-pill { padding:3px 11px; border:1px solid var(--c-border); font-size:11px; color:var(--c-green); background:var(--c-greenFaint); font-family:'DM Mono',monospace; transition:all .2s; cursor:default; }
+  .project-stack-pill:hover { border-color:var(--c-green); background:var(--c-hover); }
+
+  .project-live-btn { display:inline-flex; align-items:center; gap:8px; padding:11px 26px; background:var(--c-green); color:var(--c-bg); font-size:11px; font-weight:500; text-decoration:none; letter-spacing:.1em; text-transform:uppercase; font-family:'DM Mono',monospace; transition:all .2s; }
+  .project-live-btn:hover { background:#a8f0bf; transform:translateY(-2px); }
+
   .hero-section { min-height:100vh; padding:100px clamp(16px,5vw,64px) 60px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; z-index:1; }
 
-  /* ── SECTION WRAP ── */
   .sec-wrap { padding:72px clamp(16px,5vw,64px); }
   @media (max-width:600px) { .sec-wrap { padding:56px 16px; } }
 
-  /* ── FOOTER ── */
   .footer-inner { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
 
   body {
@@ -160,7 +188,7 @@ const CSS = `
     cursor:none;
   }
   @media (hover:none) { body { cursor:auto; } }
-  ::selection { background:var(--c-green); color:${C.bg}; }
+  ::selection { background:var(--c-green); color:#0a0a0f; }
   ::-webkit-scrollbar { width:3px; }
   ::-webkit-scrollbar-thumb { background:var(--c-border); border-radius:2px; }
 
@@ -303,7 +331,6 @@ function WorkCard({job,index}){
       transform:inView?'none':`translateX(${index%2===0?-40:40}px)`,
       transition:`opacity .7s ease ${index*.12}s,transform .7s ease ${index*.12}s,border-color .3s`,
     }}>
-      {/* header */}
       <div className="work-header" data-h onClick={()=>setOpen(o=>!o)}
         onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}
         style={{
@@ -325,11 +352,8 @@ function WorkCard({job,index}){
           <div style={{width:26,height:26,border:`1px solid ${open?C.green:C.border}`,display:'flex',alignItems:'center',justifyContent:'center',color:open?C.green:C.muted,fontSize:16,transform:open?'rotate(45deg)':'none',transition:'all .3s'}}>+</div>
         </div>
       </div>
-
-      {/* expanded */}
       <div style={{maxHeight:open?700:0,overflow:'hidden',transition:'max-height .5s cubic-bezier(.4,0,.2,1)'}}>
         <div style={{borderTop:`1px solid ${C.border}`}}>
-          {/* stack */}
           <div className="work-stack" style={{padding:'18px clamp(16px,3vw,32px)',display:'flex',flexWrap:'wrap',gap:8,borderBottom:`1px solid ${C.border}`}}>
             {job.stack.map(s=>(
               <span key={s} style={{padding:'3px 12px',border:`1px solid ${C.border}`,fontSize:11,color:C.green,background:C.greenFaint,transition:'all .2s',cursor:'default'}}
@@ -339,7 +363,6 @@ function WorkCard({job,index}){
               </span>
             ))}
           </div>
-          {/* highlights */}
           <div className="work-highlights" style={{padding:'20px clamp(16px,3vw,32px) 28px',display:'flex',flexDirection:'column',gap:12}}>
             {job.highlights.map((h,i)=>(
               <div key={i} style={{display:'flex',gap:12,alignItems:'flex-start'}}>
@@ -354,6 +377,105 @@ function WorkCard({job,index}){
   );
 }
 
+/* ── PROJECT CARD ── */
+function ProjectCard({ project, index }) {
+  const [ref, inView] = useInView(0.06);
+  const stackEntries = Object.entries(project.stack);
+
+  return (
+    <div
+      ref={ref}
+      className="project-card"
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? 'none' : 'translateY(32px)',
+        transition: `opacity .7s ease ${index * 0.12}s, transform .7s ease ${index * 0.12}s`,
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* green left accent bar */}
+      <div style={{ position: 'absolute', top: 0, left: 0, width: 3, height: '100%', background: C.green, opacity: 0.5 }} />
+
+      {/* top header row */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        gap: 16,
+        padding: 'clamp(20px,3vw,32px) clamp(20px,3vw,36px) 0',
+        flexWrap: 'wrap',
+      }}>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 8, flexWrap: 'wrap' }}>
+            <span style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: 11, color: C.green, letterSpacing: '.12em', textTransform: 'uppercase' }}>
+              {project.num}
+            </span>
+            <span style={{ width: 1, height: 14, background: C.border }} />
+            <span style={{ fontSize: 10, color: C.muted, letterSpacing: '.14em', textTransform: 'uppercase', fontFamily: "'DM Mono',monospace" }}>
+              Featured Project
+            </span>
+          </div>
+          <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: 'clamp(22px,3vw,36px)', color: C.white, letterSpacing: -0.5, lineHeight: 1.1, marginBottom: 4 }}>
+            {project.title}
+          </div>
+          <div style={{ fontSize: 12, color: C.green, fontFamily: "'DM Mono',monospace", marginBottom: 0 }}>
+            {project.subtitle}
+          </div>
+        </div>
+
+        <a
+          href={project.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-h
+          className="project-live-btn"
+          style={{ flexShrink: 0, marginTop: 4 }}
+        >
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: C.bg, opacity: 0.7 }} />
+          Live Demo ↗
+        </a>
+      </div>
+
+      {/* description */}
+      <div style={{ padding: '20px clamp(20px,3vw,36px)', borderBottom: `1px solid ${C.border}` }}>
+        <p style={{ fontSize: 13, color: C.muted, lineHeight: 1.85, maxWidth: 760 }}>
+          {project.description}
+        </p>
+      </div>
+
+      {/* highlights */}
+      <div style={{ padding: '18px clamp(20px,3vw,36px)', display: 'flex', flexDirection: 'column', gap: 10, borderBottom: `1px solid ${C.border}` }}>
+        {project.highlights.map((h, i) => (
+          <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+            <span style={{ color: C.green, marginTop: 4, flexShrink: 0, fontSize: 10 }}>▸</span>
+            <p style={{ fontSize: 13, color: C.muted, lineHeight: 1.75 }}>{h}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* grouped tech stack */}
+      <div style={{
+        padding: 'clamp(16px,2vw,24px) clamp(20px,3vw,36px) clamp(20px,3vw,28px)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 14,
+      }}>
+        {stackEntries.map(([group, pills]) => (
+          <div key={group} className="project-stack-group">
+            <div className="project-stack-label">{group}</div>
+            <div className="project-stack-pills">
+              {pills.map(p => (
+                <span key={p} className="project-stack-pill">{p}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ── SKILLS ── */
 function SkillsBlock(){
   const[cat,setCat]=useState("Languages");
@@ -361,7 +483,6 @@ function SkillsBlock(){
   const grp=SKILLS.find(s=>s.cat===cat);
   return(
     <div ref={ref}>
-      {/* tabs */}
       <div className="skill-tabs-wrap">
         {SKILLS.map(s=>(
           <button key={s.cat} data-h onClick={()=>setCat(s.cat)} style={{
@@ -374,7 +495,6 @@ function SkillsBlock(){
           }}>{s.cat}</button>
         ))}
       </div>
-      {/* bars */}
       <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(300px,1fr))',gap:'10px 56px'}}>
         {grp?.items.map((name,i)=>(
           <div key={name} style={{paddingBottom:10}}>
@@ -425,7 +545,7 @@ function Sec({id,num,title,children,alt=false,style={}}){
 export default function Portfolio(){
   const[scroll,setScroll]=useState(0);
   const[menuOpen,setMenuOpen]=useState(false);
-  const[dark,setDark]=useState(true);
+  const[dark,setDark]=useState(false);
   useEffect(()=>{
     const h=()=>setScroll(window.scrollY);
     window.addEventListener('scroll',h,{passive:true});
@@ -441,7 +561,7 @@ export default function Portfolio(){
     <Cursor/>
     <GridBg/>
 
-    {/* ── NAV ── */}
+    {/* NAV */}
     <header style={{
       position:'fixed',top:0,left:0,right:0,zIndex:100,height:56,
       background:scroll>40?'var(--c-nav)':'transparent',
@@ -456,7 +576,7 @@ export default function Portfolio(){
       </a>
       <div style={{display:'flex',alignItems:'center',gap:0}}>
         <nav className="nav-desktop">
-          {[['#about','About'],['#work','Work'],['#skills','Skills'],['#edu','Education'],['#contact','Contact']].map(([h,l])=>(
+          {[['#about','About'],['#work','Work'],['#projects','Projects'],['#skills','Skills'],['#edu','Education'],['#contact','Contact']].map(([h,l])=>(
             <NavLink key={h} href={h}>{l}</NavLink>
           ))}
         </nav>
@@ -466,40 +586,34 @@ export default function Portfolio(){
           <span style={{transform:menuOpen?'rotate(-45deg) translate(5px,-5px)':'none'}}/>
         </button>
         <div className="toggle-pill" onClick={()=>setDark(d=>!d)}>
-          <span style={{fontSize:9,color:C.muted,letterSpacing:'.1em',textTransform:'uppercase',userSelect:'none'}}>{dark?'Dark':'Light'}</span>
+          <span style={{fontSize:9,color:C.muted,letterSpacing:'.1em',textTransform:'uppercase',userSelect:'none'}}>{dark?'Light':'Dark'}</span>
           <button className="toggle-track" aria-label="Toggle theme"><span className="toggle-thumb"/></button>
         </div>
       </div>
       <div className={`nav-mobile${menuOpen?' open':''}`}>
-        {[['#about','About'],['#work','Work'],['#skills','Skills'],['#edu','Education'],['#contact','Contact']].map(([h,l])=>(
+        {[['#about','About'],['#work','Work'],['#projects','Projects'],['#skills','Skills'],['#edu','Education'],['#contact','Contact']].map(([h,l])=>(
           <a key={h} href={h} onClick={()=>setMenuOpen(false)}>{l}</a>
         ))}
       </div>
     </header>
 
-    {/* ── HERO ── */}
+    {/* HERO */}
     <section id="about" className="hero-section">
-      {/* glow orb */}
       <div style={{position:'absolute',top:'20%',right:'5%',width:480,height:480,borderRadius:'50%',background:`radial-gradient(circle,rgba(126,232,162,.05),transparent 65%)`,pointerEvents:'none',animation:'float 10s ease-in-out infinite'}}/>
-
       <div style={{maxWidth:680,width:'100%'}}>
         <div className="fu1" style={{display:'inline-flex',alignItems:'center',gap:8,padding:'6px 14px',border:`1px solid ${C.border}`,background:C.surface,marginBottom:28}}>
           <span style={{width:7,height:7,borderRadius:'50%',background:C.green,animation:'pulse 2s ease-in-out infinite'}}/>
           <span style={{fontSize:11,letterSpacing:'.14em',textTransform:'uppercase',color:C.muted}}>Available · Fairfax, VA</span>
         </div>
-
         <h1 className="fu2" style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:'clamp(38px,7.5vw,96px)',lineHeight:.95,letterSpacing:'clamp(-1px,-0.03em,-3px)',marginBottom:24,color:C.white}}>
           ABHIRAM<br/><span style={{color:C.green}}>MULLAPUDI</span>
         </h1>
-
         <div className="fu3" style={{fontSize:'clamp(14px,1.6vw,17px)',marginBottom:32,color:C.muted}}>
           {'> '}<TW/>
         </div>
-
         <p className="fu4" style={{fontSize:14,color:C.muted,lineHeight:1.9,maxWidth:540,marginBottom:44}}>
           ML Engineer with 3+ years building production systems at the intersection of data and infrastructure. Shipping real-time inference services, distributed feature pipelines, and automated ML workflows in Go, Python, and Java on AWS. I care about models that actually run in production, not just notebooks.
         </p>
-
         <div className="fu5" style={{display:'flex',gap:14,flexWrap:'wrap'}}>
           <a href="#work" data-h style={{padding:'13px 30px',background:C.green,color:C.bg,fontSize:12,fontWeight:500,textDecoration:'none',letterSpacing:'.08em',textTransform:'uppercase',transition:'all .2s'}}
             onMouseEnter={e=>{e.currentTarget.style.background='#a8f0bf';e.currentTarget.style.transform='translateY(-2px)';}}
@@ -513,35 +627,40 @@ export default function Portfolio(){
           </a>
         </div>
       </div>
-
     </section>
 
-    {/* ── TICKER ── */}
+    {/* TICKER */}
     <Ticker/>
 
-    {/* ── STATS ── */}
+    {/* STATS */}
     <section style={{background:C.surface,padding:'72px clamp(16px,5vw,64px)',borderTop:`1px solid ${C.border}`,borderBottom:`1px solid ${C.border}`,position:'relative',zIndex:1}}>
       <div className="stats-grid">
         {STATS.map((s,i)=><StatCard key={i} {...s} delay={i*.08}/>)}
       </div>
     </section>
 
-    {/* ── WORK ── */}
+    {/* WORK */}
     <Sec id="work" num="01 / EXPERIENCE" title={<>Where I've<br/>shipped.</>}>
       <div style={{display:'flex',flexDirection:'column',gap:2}}>
         {WORK.map((j,i)=><WorkCard key={j.id} job={j} index={i}/>)}
       </div>
     </Sec>
 
-    {/* ── SKILLS ── */}
-    <Sec id="skills" num="02 / SKILLS" title={<>Tools &<br/>craft.</>} alt>
+    {/* PROJECTS */}
+    <Sec id="projects" num="02 / PROJECTS" title={<>Things I've<br/>built.</>} alt>
+      <div style={{display:'flex',flexDirection:'column',gap:2}}>
+        {PROJECTS.map((p,i)=><ProjectCard key={p.id} project={p} index={i}/>)}
+      </div>
+    </Sec>
+
+    {/* SKILLS */}
+    <Sec id="skills" num="03 / SKILLS" title={<>Tools &<br/>craft.</>}>
       <SkillsBlock/>
     </Sec>
 
-    {/* ── EDUCATION ── */}
-    <Sec id="edu" num="03 / EDUCATION" title={<>Academic<br/>roots.</>}>
+    {/* EDUCATION */}
+    <Sec id="edu" num="04 / EDUCATION" title={<>Academic<br/>roots.</>} alt>
       <div className="edu-grid">
-        {/* degree */}
         <EduCard delay={0}>
           <div style={{fontSize:10,color:C.green,letterSpacing:'.2em',textTransform:'uppercase',marginBottom:20,fontFamily:"'DM Mono',monospace"}}>Master's Degree</div>
           <div style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:26,color:C.white,letterSpacing:-.5,marginBottom:8,lineHeight:1.2}}>Computer Science</div>
@@ -553,7 +672,6 @@ export default function Portfolio(){
           </div>
         </EduCard>
 
-        {/* cert */}
         <EduCard delay={.1} style={{background:`linear-gradient(135deg,${C.surface},rgba(126,232,162,.06))`,borderColor:'rgba(126,232,162,.15)'}}>
           <div style={{fontSize:10,color:C.green,letterSpacing:'.2em',textTransform:'uppercase',marginBottom:20,fontFamily:"'DM Mono',monospace"}}>Certification</div>
           <div style={{fontSize:36,marginBottom:16}}>☁️</div>
@@ -561,7 +679,6 @@ export default function Portfolio(){
           <div style={{fontSize:11,color:C.muted,fontFamily:"'DM Mono',monospace"}}>Amazon Web Services<br/>December 2024</div>
         </EduCard>
 
-        {/* availability */}
         <EduCard delay={.2} style={{borderColor:'rgba(126,232,162,.15)'}}>
           <div style={{fontSize:10,color:C.green,letterSpacing:'.2em',textTransform:'uppercase',marginBottom:20,fontFamily:"'DM Mono',monospace"}}>Currently</div>
           <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:16}}>
@@ -576,13 +693,13 @@ export default function Portfolio(){
       </div>
     </Sec>
 
-    {/* ── CONTACT ── */}
-    <section id="contact" className="sec-wrap" style={{background:C.surface,borderTop:`1px solid ${C.border}`,position:'relative',zIndex:1}}>
+    {/* CONTACT */}
+    <section id="contact" className="sec-wrap" style={{background:C.bg,borderTop:`1px solid ${C.border}`,position:'relative',zIndex:1}}>
       <div style={{position:'absolute',top:'50%',left:'40%',width:400,height:400,borderRadius:'50%',background:`radial-gradient(circle,rgba(126,232,162,.04),transparent 65%)`,pointerEvents:'none',transform:'translate(-50%,-50%)'}}/>
       <div className="contact-grid" style={{position:'relative',zIndex:1}}>
         <div>
           <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:16}}>
-            <span style={{fontSize:11,color:C.green,letterSpacing:'.2em',textTransform:'uppercase',fontFamily:"'DM Mono',monospace"}}>04 / CONTACT</span>
+            <span style={{fontSize:11,color:C.green,letterSpacing:'.2em',textTransform:'uppercase',fontFamily:"'DM Mono',monospace"}}>05 / CONTACT</span>
             <div style={{flex:1,height:1,background:`linear-gradient(90deg,${C.border},transparent)`}}/>
           </div>
           <h2 style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:'clamp(32px,5vw,72px)',letterSpacing:'clamp(-1px,-0.03em,-2px)',lineHeight:.95,color:C.white,marginBottom:20}}>
