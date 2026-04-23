@@ -15,46 +15,46 @@ const C = {
 };
 
 /* ── DATA ── */
-const ROLES = ["Software Engineer","Backend Architect","Go Developer","Cloud Native Builder","AI Engineer","Machine Learning Engineer"];
+const ROLES = ["AI Engineer","Machine Learning Engineer","RAG Pipeline Builder","LLM Fine-Tuner","MLOps Engineer","Full Stack AI Developer"];
 
 const WORK = [
   {
     id:1, num:"01",
-    period:"Dec 2024 – Present",
-    company:"SocialTech Labs", location:"New York, USA",
+    period:"Dec 2024 – Mar 2026",
+    company:"Infosys", location:"Raleigh, NC",
     role:"AI Engineer",
-    stack:["Go", "Python", "AWS Lambda", "DynamoDB", "Redis", "Gradient Boosting", "PyTorch", "CI/CD", "Docker"],
+    stack:["Python", "LangChain", "Azure OpenAI", "PyTorch", "Hugging Face", "Redis", "Pinecone", "FastAPI", "Docker", "AWS"],
     highlights:[
-      "Designed and deployed real-time ML inference services in Go and Python for behavioral risk scoring, delivering sub-50ms p95 latency in production.",
-      "Built distributed feature pipelines using AWS Lambda, DynamoDB, and Redis to generate user embeddings and time-series features for real-time model serving.",
-      "Implemented a model evaluation and experimentation framework to compare gradient boosting and neural network approaches, improving prediction precision by 18%.",
-      "Developed automated retraining workflows with scheduled batch jobs, data versioning, and CI/CD pipelines, reducing manual deployment effort and enabling continuous model refresh.",
+      "Designed and deployed generative AI solutions on the Infosys Topaz platform, reducing manual processing time for knowledge-intensive workflows by ~45% across 10,000+ monthly document processing requests.",
+      "Developed and optimized RAG pipelines using LangChain and Azure OpenAI, improving response relevance by 32% and reducing hallucination rates by ~25% compared to baseline implementations.",
+      "Fine-tuned and benchmarked open-source LLMs (Llama 3, Mistral) for domain-specific enterprise use cases, achieving 88%+ accuracy on client-defined evaluation suites.",
+      "Reduced LLM inference costs by ~35% through tiered model routing between Mistral 7B and GPT-4 class models based on query complexity, backed by a Redis caching layer to eliminate redundant API calls.",
     ],
   },
   {
     id:2, num:"02",
-    period:"Jul 2022 – Jun 2023",
-    company:"1Stop.ai", location:"Bengaluru, India",
+    period:"Jan 2024 – Oct 2024",
+    company:"BigBear.ai", location:"McLean, Virginia",
     role:"Machine Learning Engineer",
-    stack:["Python", "Flask", "PyTorch", "scikit-learn", "Airflow", "MLflow", "Optuna", "Prometheus"],
+    stack:["AWS SageMaker", "Docker", "Kubernetes", "MLflow", "Apache Airflow", "PyTorch", "Scikit-learn", "PostgreSQL", "Redis"],
     highlights:[
-      "Built large-scale ML pipelines for automotive sensor data, performing multi-dimensional time-series feature extraction and reducing preprocessing latency by 40% across production workloads.",
-      "Developed RESTful inference APIs using Flask and PyTorch to serve real-time anomaly detection models with low-latency prediction paths.",
-      "Implemented automated model validation, hyperparameter tuning, and ensemble pipelines, improving model accuracy by 15% across three production variants under class-imbalanced conditions.",
-      "Instrumented pipelines with logging and metrics to monitor data quality, feature distributions, and prediction errors, strengthening end-to-end ML reliability.",
+      "Architected end-to-end ML training and inference pipelines on AWS SageMaker, cutting model training time by ~40% through distributed data preprocessing and pipeline parallelization across multi-node compute clusters.",
+      "Designed an automated model retraining framework with drift detection using KL divergence and PSI scoring, sustaining 90%+ accuracy across continuously evolving operational data streams.",
+      "Built and scaled MLOps infrastructure using Docker, Kubernetes, and CI/CD pipelines on AWS, reducing model deployment time from days to under 2 hours with zero-downtime deployments.",
+      "Collaborated with data engineers to build AI-ready data pipelines processing 1M+ daily records, reducing preprocessing bottlenecks by ~35% and improving feature delivery latency.",
     ],
   },
   {
     id:3, num:"03",
-    period:"Jun 2021 – May 2022",
+    period:"Jun 2022 – Jul 2023",
     company:"Pixelvide", location:"Hyderabad, India",
-    role:"Software Developer Engineer",
-    stack:["Java", "Spring Boot", "PostgreSQL", "Kafka", "Spark", "JWT", "pytest", "JUnit"],
+    role:"Software Engineer",
+    stack:["Python", "Scikit-learn", "Pandas", "NumPy", "FastAPI", "PostgreSQL", "React", "REST APIs", "Git", "Docker"],
     highlights:[
-      "Designed and built data ingestion and preprocessing pipelines for large-scale financial transaction data, generating features for fraud detection and expenditure anomaly analysis.",
-      "Developed and deployed RESTful APIs to serve model-ready feature datasets and real-time inference results, supporting analytics workflows over 50K+ financial transactions per day.",
-      "Designed secure data access layers with JWT authentication and role-based access controls, ensuring compliant model training workflows and audit-ready analytics.",
-      "Engineered automated data validation and testing pipelines using pytest and JUnit with 90%+ coverage, enforcing schema integrity and data quality across all ML-facing data flows.",
+      "Designed and implemented Python-based ETL pipelines to ingest and process real-time traffic sensor feeds into a centralized data warehouse, reducing data processing latency by ~35%.",
+      "Built a traffic anomaly detection module using Scikit-learn, flagging unusual congestion patterns across monitored zones and reducing manual operator review time by ~30%.",
+      "Developed and maintained REST APIs using FastAPI to expose processed traffic analytics to React-based government dashboards, supporting real-time visualization for 50+ monitored intersections.",
+      "Worked on data preprocessing and feature engineering pipelines using Pandas and NumPy to clean and normalize raw traffic camera feeds, improving downstream model accuracy by ~20%.",
     ],
   },
 ];
@@ -84,17 +84,17 @@ const PROJECTS = [
 ];
 
 const SKILLS = [
-  { cat:"Languages",   items:["Go","Python","Java","TypeScript","SQL","C++"],                       levels:[5,5,5,3,4,2] },
-  { cat:"Cloud & Infra",items:["AWS Lambda","DynamoDB","Redis","Docker","Kubernetes","CI/CD"],        levels:[5,5,5,4,3,5] },
-  { cat:"Frameworks",  items:["Spring Boot","Flask","Node.js","React","Django","gRPC"],              levels:[5,5,3,3,3,3] },
-  { cat:"Testing",     items:["gomock","pytest","JUnit","Mockito","TDD","httptest"],                 levels:[5,5,5,4,4,4] },
+  { cat:"Languages",    items:["Python", "Go", "Java", "TypeScript", "SQL", "C++"],                         levels:[5,4,4,3,4,2] },
+  { cat:"AI / ML",      items:["PyTorch", "Scikit-learn", "LangChain", "Hugging Face", "MLflow", "Pinecone"], levels:[5,5,5,4,4,4] },
+  { cat:"Cloud & Infra",items:["AWS SageMaker", "Docker", "Kubernetes", "Redis", "CI/CD", "Apache Airflow"],  levels:[5,5,4,5,5,4] },
+  { cat:"Frameworks",   items:["FastAPI", "Spring Boot", "React", "Flask", "Pandas", "NumPy"],               levels:[5,4,4,4,5,5] },
 ];
 
 const STATS = [
-  { val:30,  sfx:"%",   label:"p95 latency cut",    sub:"via AWS Lambda + Redis" },
-  { val:45,  sfx:"%",   label:"DB load reduced",     sub:"Redis distributed cache" },
-  { val:85,  sfx:"%",   label:"code coverage",       sub:"20K+ LOC, gomock" },
-  { val:40,  sfx:"%",   label:"fewer defects",        sub:"post-release" },
+  { val:45,  sfx:"%",   label:"processing time cut",  sub:"Infosys Topaz platform" },
+  { val:35,  sfx:"%",   label:"LLM cost reduction",   sub:"tiered model routing" },
+  { val:40,  sfx:"%",   label:"training time cut",    sub:"AWS SageMaker pipelines" },
+  { val:88,  sfx:"%+",  label:"LLM accuracy",         sub:"client eval suites" },
 ];
 
 /* ── GLOBAL CSS ── */
@@ -285,7 +285,7 @@ function TW(){
 
 /* ── TICKER ── */
 function Ticker(){
-  const t="Go · AWS · Redis · DynamoDB · Docker · Kubernetes · Spring Boot · Flask · Kafka · gRPC · GraphQL · PostgreSQL · CI/CD · Microservices · System Design · ";
+  const t="Python · LangChain · PyTorch · Hugging Face · AWS SageMaker · Docker · Kubernetes · MLflow · FastAPI · Redis · Pinecone · Scikit-learn · PostgreSQL · CI/CD · RAG · LLMs · ";
   return(
     <div style={{borderTop:`1px solid ${C.border}`,borderBottom:`1px solid ${C.border}`,overflow:'hidden',whiteSpace:'nowrap',padding:'12px 0',background:C.surface,userSelect:'none',position:'relative',zIndex:1}}>
       <div style={{display:'inline-block',animation:'ticker 26s linear infinite'}}>
@@ -603,7 +603,7 @@ export default function Portfolio(){
       <div style={{maxWidth:680,width:'100%'}}>
         <div className="fu1" style={{display:'inline-flex',alignItems:'center',gap:8,padding:'6px 14px',border:`1px solid ${C.border}`,background:C.surface,marginBottom:28}}>
           <span style={{width:7,height:7,borderRadius:'50%',background:C.green,animation:'pulse 2s ease-in-out infinite'}}/>
-          <span style={{fontSize:11,letterSpacing:'.14em',textTransform:'uppercase',color:C.muted}}>Available · Fairfax, VA</span>
+          <span style={{fontSize:11,letterSpacing:'.14em',textTransform:'uppercase',color:C.muted}}>Available · New York, NY</span>
         </div>
         <h1 className="fu2" style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:'clamp(38px,7.5vw,96px)',lineHeight:.95,letterSpacing:'clamp(-1px,-0.03em,-3px)',marginBottom:24,color:C.white}}>
           ABHIRAM<br/><span style={{color:C.green}}>MULLAPUDI</span>
@@ -612,7 +612,7 @@ export default function Portfolio(){
           {'> '}<TW/>
         </div>
         <p className="fu4" style={{fontSize:14,color:C.muted,lineHeight:1.9,maxWidth:540,marginBottom:44}}>
-          ML Engineer with 3+ years building production systems at the intersection of data and infrastructure. Shipping real-time inference services, distributed feature pipelines, and automated ML workflows in Go, Python, and Java on AWS. I care about models that actually run in production, not just notebooks.
+          AI Engineer with 3+ years building production GenAI and ML systems. Shipping RAG pipelines, LLM fine-tuning workflows, and MLOps infrastructure in Python on AWS and Azure. I care about models that actually run in production, not just notebooks.
         </p>
         <div className="fu5" style={{display:'flex',gap:14,flexWrap:'wrap'}}>
           <a href="#work" data-h style={{padding:'13px 30px',background:C.green,color:C.bg,fontSize:12,fontWeight:500,textDecoration:'none',letterSpacing:'.08em',textTransform:'uppercase',transition:'all .2s'}}
@@ -665,10 +665,10 @@ export default function Portfolio(){
           <div style={{fontSize:10,color:C.green,letterSpacing:'.2em',textTransform:'uppercase',marginBottom:20,fontFamily:"'DM Mono',monospace"}}>Master's Degree</div>
           <div style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:26,color:C.white,letterSpacing:-.5,marginBottom:8,lineHeight:1.2}}>Computer Science</div>
           <div style={{fontSize:13,color:C.green,marginBottom:4}}>George Mason University</div>
-          <div style={{fontSize:11,color:C.muted,fontFamily:"'DM Mono',monospace",marginBottom:28}}>Fairfax, Virginia</div>
+          <div style={{fontSize:11,color:C.muted,fontFamily:"'DM Mono',monospace",marginBottom:28}}>Fairfax, Virginia · 2023 – 2025</div>
           <div style={{display:'flex',alignItems:'baseline',gap:6}}>
-            <span style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:48,color:C.green,letterSpacing:-2,lineHeight:1}}>3.67</span>
-            <span style={{fontSize:14,color:C.muted,fontFamily:"'DM Mono',monospace"}}>/4.0 GPA</span>
+            <span style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:48,color:C.green,letterSpacing:-2,lineHeight:1}}>MS</span>
+            <span style={{fontSize:14,color:C.muted,fontFamily:"'DM Mono',monospace"}}>Computer Science</span>
           </div>
         </EduCard>
 
@@ -676,7 +676,7 @@ export default function Portfolio(){
           <div style={{fontSize:10,color:C.green,letterSpacing:'.2em',textTransform:'uppercase',marginBottom:20,fontFamily:"'DM Mono',monospace"}}>Certification</div>
           <div style={{fontSize:36,marginBottom:16}}>☁️</div>
           <div style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:20,color:C.white,letterSpacing:-.3,marginBottom:8,lineHeight:1.2}}>AWS Cloud Practitioner</div>
-          <div style={{fontSize:11,color:C.muted,fontFamily:"'DM Mono',monospace"}}>Amazon Web Services<br/>December 2024</div>
+          <div style={{fontSize:11,color:C.muted,fontFamily:"'DM Mono',monospace"}}>Amazon Web Services</div>
         </EduCard>
 
         <EduCard delay={.2} style={{borderColor:'rgba(126,232,162,.15)'}}>
@@ -687,7 +687,7 @@ export default function Portfolio(){
           </div>
           <div style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:22,color:C.white,marginBottom:12,lineHeight:1.2,letterSpacing:-.5}}>Open to new opportunities</div>
           <div style={{fontSize:12,color:C.muted,lineHeight:1.8,fontFamily:"'DM Mono',monospace"}}>
-            Backend engineering · remote or hybrid · Fairfax, VA area
+            AI / ML engineering · remote or hybrid · New York, NY area
           </div>
         </EduCard>
       </div>
@@ -706,7 +706,7 @@ export default function Portfolio(){
             LET'S<br/><span style={{color:C.green}}>BUILD.</span>
           </h2>
           <p style={{fontSize:14,color:C.muted,lineHeight:1.85,maxWidth:380,marginBottom:44}}>
-            Open to backend engineering roles, freelance work, or conversations about distributed systems and cloud architecture.
+            Open to AI and ML engineering roles, freelance work, or conversations about LLMs, RAG systems, and production ML infrastructure.
           </p>
           <a href="mailto:amullap@gmu.edu" data-h style={{display:'inline-flex',alignItems:'center',gap:10,padding:'14px 32px',background:C.green,color:C.bg,fontSize:12,fontWeight:500,textDecoration:'none',letterSpacing:'.08em',textTransform:'uppercase',transition:'all .2s'}}
             onMouseEnter={e=>{e.currentTarget.style.background='#a8f0bf';e.currentTarget.style.transform='translateY(-2px)';}}
@@ -716,9 +716,10 @@ export default function Portfolio(){
         </div>
         <div style={{display:'flex',flexDirection:'column',gap:2}}>
           {[
-            {label:'Email',    href:'mailto:amullap@gmu.edu', hint:'amullap@gmu.edu',   icon:'✉'},
-            {label:'LinkedIn', href:'https://linkedin.com',   hint:'Connect with me',    icon:'↗'},
-            {label:'GitHub',   href:'https://github.com',     hint:"See my projects",    icon:'⌥'},
+            {label:'Email',    href:'mailto:amullap@gmu.edu',                          hint:'amullap@gmu.edu',          icon:'✉'},
+            {label:'LinkedIn', href:'https://www.linkedin.com/in/abhirammullapudi',    hint:'Connect with me',           icon:'↗'},
+            {label:'GitHub',   href:'https://www.github.com/abhiram1212',              hint:'See my projects',           icon:'⌥'},
+            {label:'Portfolio',href:'https://d2k1s3747cubd5.cloudfront.net/',          hint:'Live portfolio',            icon:'◈'},
           ].map((l,i)=><ContactRow key={l.label} {...l} delay={i*.08}/>)}
         </div>
       </div>
@@ -727,7 +728,7 @@ export default function Portfolio(){
     <footer style={{background:C.bg,borderTop:`1px solid ${C.border}`,padding:'18px clamp(16px,5vw,64px)',position:'relative',zIndex:1}}>
       <div className="footer-inner">
         <span style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:14,color:C.muted,letterSpacing:-.3}}>Abhiram Mullapudi</span>
-        <span style={{fontFamily:"'DM Mono',monospace",fontSize:11,color:C.dim,letterSpacing:'.1em'}}>Fairfax, VA · 2026</span>
+        <span style={{fontFamily:"'DM Mono',monospace",fontSize:11,color:C.dim,letterSpacing:'.1em'}}>New York, NY · 2026</span>
       </div>
     </footer>
   </>);
