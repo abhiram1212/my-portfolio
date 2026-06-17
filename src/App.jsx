@@ -79,7 +79,7 @@ const PROJECTS = [
       "Cloud":    ["AWS EC2", "RDS", "S3", "CloudFront"],
       "Tools":    ["Docker", "Git", "systemd"],
     },
-    live: "https://d1trzl7talcx36.cloudfront.net",
+    live: "https://d3refzh9948hj3.cloudfront.net",
   },
 ];
 
