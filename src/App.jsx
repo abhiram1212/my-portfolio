@@ -20,7 +20,7 @@ const ROLES = ["AI Engineer","Machine Learning Engineer","RAG Pipeline Builder",
 const WORK = [
   {
     id:1, num:"01",
-    period:"Dec 2024 – Mar 2026",
+    period:"Dec 2024 – Jun 2026",
     company:"Infosys", location:"Raleigh, NC",
     role:"AI Engineer",
     stack:["Python", "LangChain", "Azure OpenAI", "PyTorch", "Hugging Face", "Redis", "Pinecone", "FastAPI", "Docker", "AWS"],
@@ -34,7 +34,7 @@ const WORK = [
   {
     id:2, num:"02",
     period:"Jan 2024 – Oct 2024",
-    company:"BigBear.ai", location:"McLean, Virginia",
+    company:"BigBear.ai", location:"McLean, VA",
     role:"Machine Learning Engineer",
     stack:["AWS SageMaker", "Docker", "Kubernetes", "MLflow", "Apache Airflow", "PyTorch", "Scikit-learn", "PostgreSQL", "Redis"],
     highlights:[
@@ -81,6 +81,28 @@ const PROJECTS = [
     },
     live: "https://d3refzh9948hj3.cloudfront.net",
   },
+  {
+    id: 2,
+    num: "02",
+    title: "GymTraq",
+    subtitle: "iOS Fitness Tracking App with AI Coaching",
+    description: "Full stack iOS application for logging gym workouts with a built-in AI coach powered by Claude. Users track sessions, exercises, and sets, and chat with a coach that remembers their full training history. Conversation context persists across sessions, so coaching advice builds on past workouts instead of starting fresh each time.",
+    highlights: [
+      "Native SwiftUI frontend with dark mode and glass card UI components.",
+      "REST API backend with Node.js and Express, with protected routes and per-user ownership verification.",
+      "Persistent AI coaching chat powered by Claude API, reconstructing conversation history from PostgreSQL on each request to maintain context across sessions.",
+      "JWT authentication with bcrypt password hashing and secure token storage in iOS Keychain.",
+    ],
+    stack: {
+      "Frontend": ["Swift", "SwiftUI"],
+      "Backend":  ["Node.js", "Express", "PostgreSQL"],
+      "AI":       ["Claude API"],
+      "Auth":     ["JWT", "bcrypt", "iOS Keychain"],
+      "Tools":    ["Git", "Xcode"],
+    },
+    live: "https://github.com/abhiram1212/GymTraq",
+    status: "In Development",
+},
 ];
 
 const SKILLS = [
