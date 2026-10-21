@@ -20,7 +20,7 @@ const ROLES = ["AI Engineer","Machine Learning Engineer","RAG Pipeline Builder",
 const WORK = [
   {
     id:1, num:"01",
-    period:"Dec 2024 – Jun 2026",
+    period:"Dec 2024 – Aug 2026",
     company:"Infosys", location:"Raleigh, NC",
     role:"AI Engineer",
     stack:["Python", "LangChain", "Azure OpenAI", "PyTorch", "Hugging Face", "Redis", "Pinecone", "FastAPI", "Docker", "AWS"],
@@ -79,7 +79,8 @@ const PROJECTS = [
       "Cloud":    ["AWS EC2", "RDS", "S3", "CloudFront"],
       "Tools":    ["Docker", "Git", "systemd"],
     },
-    live: "https://d3refzh9948hj3.cloudfront.net",
+    live: "https://github.com/abhiram1212/docmind",
+    linkLabel: "View",
   },
   {
     id: 2,
@@ -455,7 +456,7 @@ function ProjectCard({ project, index }) {
           style={{ flexShrink: 0, marginTop: 4 }}
         >
           <span style={{ width: 7, height: 7, borderRadius: '50%', background: C.bg, opacity: 0.7 }} />
-          Live Demo ↗
+          {project.linkLabel || 'Live Demo'} ↗
         </a>
       </div>
 
