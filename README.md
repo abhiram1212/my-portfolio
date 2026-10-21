@@ -1,8 +1,8 @@
 # Abhiram's Portfolio
 
-Personal developer portfolio built with React, Vite, and Tailwind CSS — deployed on AWS S3 + CloudFront via GitHub Actions.
+Personal developer portfolio built with React, Vite, and Tailwind CSS — deployed on GitHub Pages via GitHub Actions.
 
-🔗 **Live site:** [d2k1s3747cubd5.cloudfront.net](https://d2k1s3747cubd5.cloudfront.net)
+🔗 **Live site:** [abhiram1212.github.io/my-portfolio/](https://abhiram1212.github.io/my-portfolio/)
 
 ---
 
@@ -10,7 +10,7 @@ Personal developer portfolio built with React, Vite, and Tailwind CSS — deploy
 
 - **Framework:** React 19 + Vite 7
 - **Styling:** Tailwind CSS, Google Fonts (Syne + DM Mono)
-- **Deployment:** AWS S3 (static hosting) + CloudFront (CDN)
+- **Deployment:** GitHub Pages
 - **CI/CD:** GitHub Actions — auto-deploys on every push to `main`
 
 ---
@@ -47,21 +47,24 @@ npm run preview
 
 ## Deployment
 
-The site deploys automatically via GitHub Actions on every push to `main`:
+To enable hosting, open the repository's **Settings → Pages** and select
+**GitHub Actions** under **Build and deployment → Source**.
 
-1. Builds the Vite project (`npm run build`)
-2. Syncs the `dist/` folder to the S3 bucket (`abhiram-portfolio1289`)
-3. Invalidates the CloudFront cache so changes go live immediately
+On every push to `main` (or a manual run from the Actions tab), the workflow:
 
-To set this up in your own fork, add the following secrets to your GitHub repo (Settings > Secrets > Actions):
+1. Installs dependencies with `npm ci --legacy-peer-deps`
+2. Builds the Vite project (`npm run build`)
+3. Uploads `dist/` and deploys it to GitHub Pages
 
-| Secret | Description |
-|---|---|
-| `AWS_ACCESS_KEY_ID` | IAM user access key |
-| `AWS_SECRET_ACCESS_KEY` | IAM user secret key |
-| `AWS_REGION` | e.g. `us-east-1` |
+The site is served at https://abhiram1212.github.io/my-portfolio/.
+Vite's `base` is set to `/my-portfolio/` so assets load under that path.
+When previewing locally, open the preview server's `/my-portfolio/` path.
+If you rename the repository, update `base` in `vite.config.js`; for a custom
+domain or a `<username>.github.io` repository, use `/` instead.
 
-The CloudFront distribution ID is set directly in the workflow — update this if you fork the repo.
+No AWS credentials are needed for deployment. After verifying the Pages site,
+you can remove unused AWS repository secrets and retire the old portfolio's
+S3 bucket and CloudFront distribution separately.
 
 ---
 
